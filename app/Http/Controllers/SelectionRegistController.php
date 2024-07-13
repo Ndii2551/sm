@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Athlet;
 use App\Models\Branch;
 use App\Models\Coach;
+use App\Models\Score;
 use App\Models\SelectionRegist;
 use App\Models\Submission;
 use App\Models\Test;
+use App\Models\TestType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,6 +55,23 @@ class SelectionRegistController extends Controller
         }
         $coaches = Coach::all();
         return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches', 'test_id', 'coach_id', 'statusp'));
+    }
+    public function report1(Request $request)
+    {
+        $submissions = Submission::all()->where('selection_id', $request->id);
+        return view('selections.submissionsRprt', compact('submissions'));
+    }
+    public function report2(Request $request)
+    {
+        $test = Test::all()->where('selection_id', $request->id);
+        $submissions = Submission::all()->where('selection_id', $request->id);
+        $types = TestType::all()->count();
+        foreach ($test as $data) {
+            $scores1 = Score::all()->where('test_id', $data->id)->where('tahap', 1);
+            $scores2 = Score::all()->where('test_id', $data->id)->where('tahap', 2);
+            $scores3 = Score::all()->where('test_id', $data->id)->where('tahap', 3);
+        }
+        return view('selections.testRprt', compact('submissions', 'types', 'scores1', 'scores2', 'scores3'));
     }
     public function close(Request $request)
     {

@@ -66,6 +66,9 @@ Route::middleware('auth', 'role:1')->group(function () {
         Route::delete('/destroy', [SelectionRegistController::class, 'destroy'])->name('selections.destroy');
         Route::group(['prefix' => 'details'], function () {
             Route::get('/', [SelectionRegistController::class, 'details'])->name('selections.details');
+            Route::get('/submissionsRprt', [SelectionRegistController::class, 'report1'])->name('selections.report1');
+            Route::get('/testRprt', [SelectionRegistController::class, 'report2'])->name('selections.report2');
+            Route::get('/testRprt', [SelectionRegistController::class, 'report2'])->name('selections.report2');
             Route::put('/close', [SelectionRegistController::class, 'close'])->name('selections.details.close');
             Route::delete('/del', [SelectionRegistController::class, 'del'])->name('selections.details.del');
             Route::post('/setuptest', [TestController::class, 'store'])->name('selections.details.setuptest');
@@ -116,12 +119,21 @@ Route::middleware('auth', 'role:3')->group(function () {
             Route::put('/update', [ScoreController::class, 'update'])->name('scores.details.update');
         });
     });
+    Route::group(['prefix' => 'stats'], function () {
+        Route::get('/', [ScoreController::class, 'stats'])->name('stats');
+        Route::group(['prefix' => 'details'], function () {
+            Route::get('/', [ScoreController::class, 'statdetails'])->name('stats.details');
+        });
+    });
 });
 Route::middleware('auth', 'role:4')->group(function () {
     Route::group(['prefix' => 'athletdata'], function () {
         Route::get('/', [AthletController::class, 'athletdata'])->name('athletdata');
         Route::post('/store', [AthletController::class, 'store'])->name('athletdata.store');
         Route::put('/update', [AthletController::class, 'update'])->name('athletdata.update');
+    });
+    Route::group(['prefix' => 'mystats'], function () {
+        Route::get('/', [ScoreController::class, 'mystats'])->name('mystats');
     });
 });
 Route::middleware('auth', 'verified')->group(function () {

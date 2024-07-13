@@ -77,7 +77,8 @@
                         </a>
                     </li>
                     <li class="sidebar-title">SELEKSI ATLET</li>
-                    <li class="sidebar-item {{ Request::is('selections') ? 'active' : '' }}">
+                    <li
+                        class="sidebar-item {{ Request::is('selections') || Request::is('selections/details') ? 'active' : '' }}">
                         <a href="{{ url('selections') }}" class='sidebar-link'>
                             <i class="bi bi-person-check-fill"></i>
                             <span>Kelola Seleksi</span>
@@ -96,6 +97,12 @@
                             <span>Validasi Data Atlet</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ Request::is('announcements') ? 'active' : '' }}">
+                        <a href="{{ url('announcements') }}" class='sidebar-link'>
+                            <i class="bi bi-megaphone-fill"></i>
+                            <span>Kelola Pengumuman</span>
+                        </a>
+                    </li>
                 @elseif (Auth::user()->role_id == 2)
                     <li class="sidebar-title">INFORMASI PRIBADI</li>
                     <li class="sidebar-item {{ Request::is('branchdata') ? 'active' : '' }}">
@@ -112,7 +119,8 @@
                         </a>
                     </li>
                     <li class="sidebar-title">SELEKSI ATLET</li>
-                    <li class="sidebar-item {{ Request::is('submissions') ? 'active' : '' }}">
+                    <li
+                        class="sidebar-item {{ Request::is('submissions') || Request::is('submissions/details') ? 'active' : '' }}">
                         <a href="{{ url('submissions') }}" class='sidebar-link'>
                             <i class="bi bi-box-arrow-up-right"></i>
                             <span>Ajukan Peserta</span>
@@ -125,6 +133,12 @@
                             <span>Validasi Data Atlet</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ Request::is('announcements') ? 'active' : '' }}">
+                        <a href="{{ url('announcements') }}" class='sidebar-link'>
+                            <i class="bi bi-megaphone-fill"></i>
+                            <span>Pengumuman</span>
+                        </a>
+                    </li>
                 @elseif (Auth::user()->role_id == 3)
                     <li class="sidebar-title">INFORMASI PRIBADI</li>
                     <li class="sidebar-item {{ Request::is('coachdata') ? 'active' : '' }}">
@@ -134,10 +148,25 @@
                         </a>
                     </li>
                     <li class="sidebar-title">SELEKSI ATLET</li>
-                    <li class="sidebar-item {{ Request::is('scores') ? 'active' : '' }}">
+                    <li
+                        class="sidebar-item {{ Request::is('scores') || Request::is('scores/details') ? 'active' : '' }}">
                         <a href="{{ url('scores') }}" class='sidebar-link'>
                             <i class="bi bi-clipboard2-check-fill"></i>
                             <span>Input Hasil Tes</span>
+                        </a>
+                    </li>
+                    <li
+                        class="sidebar-item {{ Request::is('stats') || Request::is('stats/details') ? 'active' : '' }}">
+                        <a href="{{ url('stats') }}" class='sidebar-link'>
+                            <i class="bi bi-bar-chart-fill"></i>
+                            <span>Statistik Peserta</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-title">LAINNYA</li>
+                    <li class="sidebar-item {{ Request::is('announcements') ? 'active' : '' }}">
+                        <a href="{{ url('announcements') }}" class='sidebar-link'>
+                            <i class="bi bi-megaphone-fill"></i>
+                            <span>Pengumuman</span>
                         </a>
                     </li>
                 @elseif (Auth::user()->role_id == 4)
@@ -148,10 +177,24 @@
                             <span>Informasi Atlet</span>
                         </a>
                     </li>
+                    <li class="sidebar-title">SELEKSI ATLET</li>
+                    <li class="sidebar-item {{ Request::is('mystats') ? 'active' : '' }}">
+                        <a href="{{ url('mystats') }}" class='sidebar-link'>
+                            <i class="bi bi-bar-chart-fill"></i>
+                            <span>Statistik</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-title">LAINNYA</li>
+                    <li class="sidebar-item {{ Request::is('announcements') ? 'active' : '' }}">
+                        <a href="{{ url('announcements') }}" class='sidebar-link'>
+                            <i class="bi bi-megaphone-fill"></i>
+                            <span>Pengumuman</span>
+                        </a>
+                    </li>
                 @elseif (Auth::user()->role_id == 5)
                     <li class="sidebar-title">REGISTRASI</li>
-                    <li class="sidebar-item @if (Auth::user()->role_id == 5) active @endif">
-                        <a href="" class='sidebar-link'>
+                    <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <a href="{{ url('dashboard') }}" class='sidebar-link'>
                             <i class="bi bi-database-fill"></i>
                             <span>Input Data Pribadi</span>
                         </a>

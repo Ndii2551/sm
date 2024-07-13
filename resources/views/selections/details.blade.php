@@ -26,7 +26,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <div>
+                        <div class="mb-3">
                             @if ($status == 1)
                                 <form class="d-inline" action="{{ url('selections/details/close') }}" method="post">
                                     @csrf
@@ -90,6 +90,26 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="card-footer col-12 d-flex justify-content-end">
+                        <div>
+                            <form class="d-inline" action="{{ route('selections.report1') }}" method="get">
+                                @csrf
+                                <button type="submit" class="btn btn-secondary" name="id"
+                                    value="{{ $selection_id }}">
+                                    <i class="bi bi-printer"></i>
+                                    Laporan Data Peserta
+                                </button>
+                            </form>
+                            <form class="d-inline" action="{{ route('selections.report2') }}" method="get">
+                                @csrf
+                                <button type="submit" class="btn btn-secondary" name="id"
+                                    value="{{ $selection_id }}">
+                                    <i class="bi bi-printer"></i>
+                                    Laporan Hasil Tes Fisik
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -129,8 +149,8 @@
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Batal</span>
                             </button>
-                            <button type="submit" class="btn btn-primary ms-1" data-bs-dismiss="modal" name="selection_id"
-                                value="{{ $selection_id }}">
+                            <button type="submit" class="btn btn-primary ms-1" data-bs-dismiss="modal"
+                                name="selection_id" value="{{ $selection_id }}">
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Simpan</span>
                             </button>

@@ -211,17 +211,6 @@
                         </form>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Catatan</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Pastikan data yang anda masukan sudah benar. Setelah selesai menginput data, harap hubungi staf
-                            pengurus cabang agar segera dilakukan validasi terhadap data anda.
-                        </p>
-                    </div>
-                </div>
             </section>
         </div>
     </div>

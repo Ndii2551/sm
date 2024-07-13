@@ -68,4 +68,43 @@ class ScoreController extends Controller
         return redirect()->back()
             ->with('success', 'Nilai berhasil diinput.');
     }
+    public function stats()
+    {
+        $data = Coach::all()->where('user_id', Auth::user()->id);
+        foreach ($data as $coach) {
+            $tests = Test::all()->where('coach_id', $coach->id)->where('status', 1);
+        }
+
+        return view('stats.index', compact('tests'));
+    }
+    public function statdetails(Request $request)
+    {
+        $tests = Test::all()->where('id', $request->id);
+        $test_id = $request->id;
+        $athlet = $request->input('athlet');
+        $type = $request->input('type');
+        foreach ($tests as $item) {
+            $person = Submission::all()->where('selection_id', $item->selection_id);
+        }
+        $scores = Score::all()->where('nama', $type)->where('athlet_id', $athlet);
+        $types = TestType::all();
+        $types1 = TestType::all()->first();
+        return view('stats.details', compact('tests', 'types', 'types1', 'person', 'test_id', 'athlet', 'scores', 'type'));
+    }
+    public function mystats(Request $request)
+    {
+        $athlet = Athlet::all()->where('user_id', Auth::user()->id);
+        foreach ($athlet as $data) {
+            $types1 = TestType::all()->first();
+            $type = $request->input('type');
+            if ($type == '') {
+                $scores = Score::all()->where('nama', $types1->nama)->where('athlet_id', $data->id);
+            } else {
+                $scores = Score::all()->where('nama', $type)->where('athlet_id', $data->id);
+            }
+        }
+        $types = TestType::all();
+
+        return view('mystats.index', compact('types', 'types1', 'scores', 'type'));
+    }
 }

@@ -13,6 +13,10 @@ class Athlet extends Model
     {
         return $this->hasMany(Submission::class, 'athlet_id');
     }
+    public function scores()
+    {
+        return $this->hasMany(Submission::class, 'athlet_id');
+    }
     public function branches()
     {
         return $this->belongsTo(Branch::class, 'branch_id');

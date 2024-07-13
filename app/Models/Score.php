@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Score extends Model
 {
     use HasFactory;
+    public function athletes()
+    {
+        return $this->belongsTo(Athlet::class, 'athlet_id');
+    }
 }
