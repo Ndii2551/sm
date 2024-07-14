@@ -52,26 +52,34 @@ class SelectionRegistController extends Controller
                 $coach_id = $test->coach_id;
                 $statusp = $test->status;
             }
+            $coaches = Coach::all();
+            return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches', 'test_id', 'coach_id', 'statusp'));
+        } else {
+            $coaches = Coach::all();
+            return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches'));
         }
-        $coaches = Coach::all();
-        return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches', 'test_id', 'coach_id', 'statusp'));
     }
     public function report1(Request $request)
     {
         $submissions = Submission::all()->where('selection_id', $request->id);
         return view('selections.submissionsRprt', compact('submissions'));
     }
-    public function report2(Request $request)
+    public function report2(Request $request, Test $test)
     {
-        $test = Test::all()->where('selection_id', $request->id);
+        $test = Test::where('selection_id', $request->id)->first();
         $submissions = Submission::all()->where('selection_id', $request->id);
-        $types = TestType::all()->count();
-        foreach ($test as $data) {
-            $scores1 = Score::all()->where('test_id', $data->id)->where('tahap', 1);
-            $scores2 = Score::all()->where('test_id', $data->id)->where('tahap', 2);
-            $scores3 = Score::all()->where('test_id', $data->id)->where('tahap', 3);
+        $types = TestType::all();
+        if ($test) {
+            $scores = Score::all()->where('test_id', $test->id);
+            if ($scores->count() != 0) {
+                $scores1 = Score::all()->where('test_id', $test->id)->where('tahap', 1);
+                $scores2 = Score::all()->where('test_id', $test->id)->where('tahap', 2);
+                $scores3 = Score::all()->where('test_id', $test->id)->where('tahap', 3);
+                return view('selections.testRprt', compact('submissions', 'types', 'scores1', 'scores2', 'scores3'));
+            }
+        } else {
+            return view('selections.testRprt', compact('submissions', 'types'));
         }
-        return view('selections.testRprt', compact('submissions', 'types', 'scores1', 'scores2', 'scores3'));
     }
     public function close(Request $request)
     {

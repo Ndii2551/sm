@@ -73,9 +73,9 @@
                                         @csrf
                                         @foreach ($types as $data)
                                             <div class="col-3">{{ $data->nama }}</div>
-                                            <div class="col-9 d-flex">
+                                            <div class="col-1 d-flex">
                                                 @for ($i = 1; $i <= $data->x; $i++)
-                                                    <input class="col-1 me-3" type="number"
+                                                    <input class="col-1 me-3 form-control" type="number"
                                                         name="{{ $loop->iteration }}_{{ $i }}" value="0"
                                                         min="0">
                                                 @endfor
@@ -89,14 +89,14 @@
                                     <div>
                                         @foreach ($types as $data)
                                             <div class="col-3">{{ $data->nama }}</div>
-                                            <div class="col-9 d-flex">
+                                            <div class="d-flex">
                                                 @foreach ($scores as $score)
                                                     @if ($score->nama == $data->nama)
                                                         <form class="col-1 me-3"
                                                             action="{{ url('scores/details/update') }}" method="post">
                                                             @csrf
                                                             @method('PUT')
-                                                            <input class="col-12" type="number" name="nilai"
+                                                            <input class="col-12 form-control" type="number" name="nilai"
                                                                 value="{{ $score->nilai }}" min="0">
                                                             <button class="d-none" type="submit" name="id"
                                                                 value="{{ $score->id }}"></button>

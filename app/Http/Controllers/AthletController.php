@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Athlet;
 use App\Models\Branch;
+use App\Models\Coach;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -101,10 +102,13 @@ class AthletController extends Controller
     {
         $datas = Athlet::all()->where('user_id', Auth::user()->id);
         $branches = Branch::all();
+        $branchesc = Branch::all()->where('status', 1)->count();
+        $coachesc = Coach::all()->where('status', 1)->count();
+        $athletesc = Athlet::all()->where('status', 3)->count();
         if (Auth::user()->role_id == 5) {
             return view('dashboard', compact('datas', 'branches'));
         } else {
-            return view('dashboard');
+            return view('dashboard', compact('branchesc', 'coachesc', 'athletesc'));
         }
     }
     public function athletdata()

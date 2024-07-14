@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\AthletController;
@@ -34,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::group(['prefix' => 'announcements'], function () {
+        Route::get('/', [AnnouncementController::class, 'index'])->name('announcements');
+        Route::post('/store', [AnnouncementController::class, 'store'])->name('announcements.store');
+        Route::delete('/destroy', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+    });
 });
 Route::middleware('auth', 'role:1')->group(function () {
     Route::group(['prefix' => 'users'], function () {

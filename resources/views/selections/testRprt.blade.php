@@ -223,21 +223,21 @@
                     $no++;
                 @endphp
                 <tr style='height:17.5pt'>
-                    <td width="13%" rowspan=4 valign=center
+                    <td width="13%" rowspan={{ $types->count() }} valign=center
                         style='width:13.02%;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $loop->iteration }}</span>
                         </p>
                     </td>
-                    <td width="20%" rowspan=4 valign=center
+                    <td width="20%" rowspan={{ $types->count() }} valign=center
                         style='width:20.44%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $data->athletes->nama }}</span>
                         </p>
                     </td>
-                    <td width="24%" rowspan=4 valign=center
+                    <td width="24%" rowspan={{ $types->count() }} valign=center
                         style='width:24.14%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
@@ -263,7 +263,7 @@
                                 </p>
                             </td>
                 </tr>
-                @if ($loop->iteration != $no * $types)
+                @if ($loop->iteration != $no * $types->count())
                     <tr style='height:3.75pt'>
                 @endif
             @endif
@@ -322,21 +322,21 @@
                     $no++;
                 @endphp
                 <tr style='height:17.5pt'>
-                    <td width="13%" rowspan=4 valign=center
+                    <td width="13%" rowspan={{ $types->count() }} valign=center
                         style='width:13.02%;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $loop->iteration }}</span>
                         </p>
                     </td>
-                    <td width="20%" rowspan=4 valign=center
+                    <td width="20%" rowspan={{ $types->count() }} valign=center
                         style='width:20.44%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $data->athletes->nama }}</span>
                         </p>
                     </td>
-                    <td width="24%" rowspan=4 valign=center
+                    <td width="24%" rowspan={{ $types->count() }} valign=center
                         style='width:24.14%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
@@ -362,7 +362,7 @@
                                 </p>
                             </td>
                 </tr>
-                @if ($loop->iteration != $no * $types)
+                @if ($loop->iteration != $no * $types->count())
                     <tr style='height:3.75pt'>
                 @endif
             @endif
@@ -421,21 +421,21 @@
                     $no++;
                 @endphp
                 <tr style='height:17.5pt'>
-                    <td width="13%" rowspan=4 valign=center
+                    <td width="13%" rowspan={{ $types->count() }} valign=center
                         style='width:13.02%;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $loop->iteration }}</span>
                         </p>
                     </td>
-                    <td width="20%" rowspan=4 valign=center
+                    <td width="20%" rowspan={{ $types->count() }} valign=center
                         style='width:20.44%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
                                 style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{ $data->athletes->nama }}</span>
                         </p>
                     </td>
-                    <td width="24%" rowspan=4 valign=center
+                    <td width="24%" rowspan={{ $types->count() }} valign=center
                         style='width:24.14%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
                         <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;line-height:normal'>
                             <span
@@ -461,7 +461,7 @@
                                 </p>
                             </td>
                 </tr>
-                @if ($loop->iteration != $no * $types)
+                @if ($loop->iteration != $no * $types->count())
                     <tr style='height:3.75pt'>
                 @endif
             @endif
