@@ -114,7 +114,7 @@
                                             </td>
                                             <td>{{ $data->athletes->jenis_kelamin }}</td>
                                             <td>
-                                                <form action="{{ url('selections/details/del') }}" method="post">
+                                                <form action="{{ url('submissions/details/del') }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn icon btn-sm btn-danger" type="submit" name="id"
