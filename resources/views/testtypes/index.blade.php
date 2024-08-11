@@ -10,14 +10,14 @@
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h3>Seleksi Atlet</h3>
-                        <p class="text-subtitle text-muted">Kelola Tes</p>
+                        <p class="text-subtitle text-muted">Kelola Jenis Tes</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Seleksi Atlet</li>
-                                <li class="breadcrumb-item active" aria-current="page">Kelola Tes</li>
+                                <li class="breadcrumb-item active" aria-current="page">Kelola Jenis Tes</li>
                             </ol>
                         </nav>
                     </div>
@@ -77,9 +77,11 @@
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        <form action="{{ url('testtypes/store') }}" method="post">
+                                                        <form action="{{ url('testtypes/update') }}" method="post">
                                                             @csrf
                                                             <div class="modal-body">
+                                                                <input type="hidden" name="id"
+                                                                    value="{{ $data->id }}">
                                                                 <label for="nama">Jenis Tes: </label>
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control"

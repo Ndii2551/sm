@@ -60,6 +60,10 @@
                                     </div>
                                 </div>
                             @else
+                                <div class="col-12 d-flex justify-content-end mb-3">
+                                    <img src="{{ asset('uploads/dokumen_atlet/' . $athletdata->pasfoto) }}" alt=""
+                                        width="100px">
+                                </div>
                                 <div>
                                     @foreach ($types as $data)
                                         <form class="d-inline" action="{{ route('stats.details') }}" method="GET"

@@ -25,6 +25,19 @@ class TestTypeController extends Controller
         return redirect()->route('testtypes')
             ->with('success', 'Data berhasil disimpan.');
     }
+    public function update(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'x' => 'required',
+        ]);
+        $data = TestType::find($request->id);
+        $data->nama = $request->nama;
+        $data->x = $request->x;
+        $data->update();
+        return redirect()->route('testtypes')
+            ->with('success', 'Data berhasil diubah.');
+    }
     public function destroy(Request $request)
     {
         $data = TestType::find($request->id);

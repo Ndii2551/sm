@@ -105,10 +105,13 @@ class AthletController extends Controller
         $branchesc = Branch::all()->where('status', 1)->count();
         $coachesc = Coach::all()->where('status', 1)->count();
         $athletesc = Athlet::all()->where('status', 3)->count();
+        $checkbranch = Branch::where('user_id', Auth::user()->id)->first();
+        $checkathlete = Athlet::where('user_id', Auth::user()->id)->first();
+        $checkcoach = Coach::where('user_id', Auth::user()->id)->first();
         if (Auth::user()->role_id == 5) {
             return view('dashboard', compact('datas', 'branches'));
         } else {
-            return view('dashboard', compact('branchesc', 'coachesc', 'athletesc'));
+            return view('dashboard', compact('branchesc', 'coachesc', 'athletesc', 'checkbranch', 'checkathlete', 'checkcoach'));
         }
     }
     public function athletdata()

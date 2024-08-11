@@ -84,6 +84,7 @@ Route::middleware('auth', 'role:1')->group(function () {
     Route::group(['prefix' => 'testtypes'], function () {
         Route::get('/', [TestTypeController::class, 'index'])->name('testtypes');
         Route::post('/store', [TestTypeController::class, 'store'])->name('testtypes.store');
+        Route::post('/update', [TestTypeController::class, 'update'])->name('testtypes.update');
         Route::delete('/destroy', [TestTypeController::class, 'destroy'])->name('testtypes.destroy');
     });
 });

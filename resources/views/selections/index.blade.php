@@ -59,7 +59,9 @@
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit" name="id"
-                                                value="{{ $data->id }}"><i class="bi bi-trash"></i></button>
+                                                value="{{ $data->id }}"
+                                                onclick="return confirm('Apakah anda ingin menghapus data?')"><i
+                                                    class="bi bi-trash"></i></button>
                                         </form>
                                     </div>
                                 </a>

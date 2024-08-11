@@ -87,7 +87,7 @@
                     <li class="sidebar-item {{ Request::is('testtypes') ? 'active' : '' }}">
                         <a href="{{ url('testtypes') }}" class='sidebar-link'>
                             <i class="bi bi-person-check-fill"></i>
-                            <span>Kelola Tes</span>
+                            <span>Kelola Jenis Tes</span>
                         </a>
                     </li>
                     <li class="sidebar-title">LAINNYA</li>

@@ -29,9 +29,10 @@ class ScoreController extends Controller
         foreach ($tests as $item) {
             $person = Submission::all()->where('selection_id', $item->selection_id);
         }
+        $athletdata = Athlet::where('id', $athlet)->first();
         $scores = Score::all()->where('test_id', $test_id)->where('athlet_id', $athlet);
         $types = TestType::all();
-        return view('scores.details', compact('tests', 'types', 'person', 'test_id', 'athlet', 'scores'));
+        return view('scores.details', compact('tests', 'types', 'person', 'test_id', 'athlet', 'scores', 'athletdata'));
     }
     public function store(Request $request)
     {
@@ -89,7 +90,8 @@ class ScoreController extends Controller
         $scores = Score::all()->where('nama', $type)->where('athlet_id', $athlet);
         $types = TestType::all();
         $types1 = TestType::all()->first();
-        return view('stats.details', compact('tests', 'types', 'types1', 'person', 'test_id', 'athlet', 'scores', 'type'));
+        $athletdata = Athlet::where('id', $athlet)->first();
+        return view('stats.details', compact('tests', 'types', 'types1', 'person', 'test_id', 'athlet', 'scores', 'type', 'athletdata'));
     }
     public function mystats(Request $request)
     {

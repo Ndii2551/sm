@@ -17,7 +17,7 @@ class SelectionRegistController extends Controller
 {
     public function index()
     {
-        $selections = SelectionRegist::all();
+        $selections = SelectionRegist::orderBy('id', 'DESC')->get();
         return view('selections.index', compact('selections'));
     }
     public function store(Request $request)
@@ -52,10 +52,10 @@ class SelectionRegistController extends Controller
                 $coach_id = $test->coach_id;
                 $statusp = $test->status;
             }
-            $coaches = Coach::all();
+            $coaches = Coach::all()->where('status', 1);
             return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches', 'test_id', 'coach_id', 'statusp'));
         } else {
-            $coaches = Coach::all();
+            $coaches = Coach::all()->where('status', 1);
             return view('selections.details', compact('submissions', 'selection_id', 'status', 'tests', 'coaches'));
         }
     }

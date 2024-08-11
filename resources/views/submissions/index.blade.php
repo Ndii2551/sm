@@ -44,12 +44,12 @@
                                                 <span class="badge bg-light">Ditutup</span>
                                             @endif
                                         </div>
-                                        <form action="{{ url('selections/destroy') }}" method="post">
+                                        {{-- <form action="{{ url('selections/destroy') }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit" name="id"
                                                 value="{{ $data->id }}"><i class="bi bi-trash"></i></button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </a>
                             @endforeach

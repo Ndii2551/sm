@@ -10,6 +10,8 @@
     <link rel="stylesheet" crossorigin href="{{ url_plug() }}/assets/compiled/css/app.css">
     <link rel="stylesheet" crossorigin href="{{ url_plug() }}/assets/compiled/css/app-dark.css">
     <link rel="stylesheet" crossorigin href="{{ url_plug() }}/assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="{{ url_plug() }}/assets/extensions/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" crossorigin="" href="{{ url_plug() }}/assets/compiled/css/extra-component-sweetalert.css">
     {{-- end core css --}}
     {{-- page css --}}
     @yield('page-css')
@@ -33,6 +35,8 @@
     <script src="{{ url_plug() }}/assets/static/js/components/dark.js"></script>
     <script src="{{ url_plug() }}/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="{{ url_plug() }}/assets/compiled/js/app.js"></script>
+    <script src="{{ url_plug() }}/assets/extensions/sweetalert2/sweetalert2.min.js"></script>
+    <script src="{{ url_plug() }}/assets/static/js/pages/sweetalert2.js"></script>
     {{-- end core js --}}
     {{-- page js --}}
     @yield('page-js')

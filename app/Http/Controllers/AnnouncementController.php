@@ -9,7 +9,7 @@ class AnnouncementController extends Controller
 {
     public function index()
     {
-        $datas = Announcement::all();
+        $datas = Announcement::orderBy('id', 'DESC')->get();
         return view('announcements.index', compact('datas'));
     }
     public function store(Request $request)

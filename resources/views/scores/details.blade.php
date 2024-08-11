@@ -68,6 +68,10 @@
                                     </div>
                                 </div>
                             @else
+                                <div class="col-12 d-flex justify-content-end mb-3">
+                                    <img src="{{ asset('uploads/dokumen_atlet/' . $athletdata->pasfoto) }}" alt=""
+                                        width="100px">
+                                </div>
                                 @if ($scores->count() == 0)
                                     <form action="{{ url('scores/details/store') }}" method="post">
                                         @csrf

@@ -8,8 +8,15 @@
     <link rel="stylesheet"
         href="{{ url_plug() }}/assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css">
     <link rel="stylesheet" href="{{ url_plug() }}/assets/extensions/toastify-js/src/toastify.css">
+    <script src="{{ url_plug() }}/assets/extensions/jquery/jquery.min.js"></script>
 @endsection
 @section('content')
+    <form id="logout" class="d-none" action="{{ route('logout') }}" method="post">
+        @csrf
+        <button type="submit" class="dropdown-item">
+            <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+            Logout</button>
+    </form>
     @if (Auth::user()->role_id == 5)
         @include('guest')
     @else
@@ -162,6 +169,16 @@
             required: false,
             storeAsFile: true,
         });
+
+        @if (
+            (Auth::user()->role_id == 2 && $checkbranch->status == 2) ||
+                (Auth::user()->role_id == 4 && $checkathlete->status == 4) ||
+                (Auth::user()->role_id == 3 && $checkcoach->status == 2))
+            $(document).ready(function() {
+                alert('akun anda telah dinonaktifkan!');
+                $("#logout").submit();
+            });
+        @endif
     </script>
 
     {{-- dashboard --}}
