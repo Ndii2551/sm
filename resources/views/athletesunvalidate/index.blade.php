@@ -45,6 +45,8 @@
                                     <th>Jenis Kelamin</th>
                                     <th>Nomor HP</th>
                                     <th>Alamat</th>
+                                    <th>NIK</th>
+                                    <th>No KK</th>
                                     <th>Berkas</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -61,6 +63,8 @@
                                         <td>{{ $data->jenis_kelamin }}</td>
                                         <td>{{ $data->no_hp }}</td>
                                         <td>{{ $data->alamat }}</td>
+                                        <td>{{ $data->no_nik }}</td>
+                                        <td>{{ $data->no_kk }}</td>
                                         <td>
                                             <button type="button" class="btn btn-sm btn-outline-primary block"
                                                 data-bs-toggle="modal" data-bs-target="#{{ $data->id }}">

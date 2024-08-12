@@ -31,8 +31,8 @@
                                 <form class="d-inline" action="{{ url('selections/details/close') }}" method="post">
                                     @csrf
                                     @method('PUT')
-                                    <button class="btn btn-danger" type="submit" name="id"
-                                        value="{{ $selection_id }}">Tutup
+                                    <button class="btn btn-danger" type="submit" name="id" value="{{ $selection_id }}"
+                                        onclick="return confirm('Apakah anda ingin menutup pengajuan?')">Tutup
                                         Pengajuan</button>
                                 </form>
                             @endif

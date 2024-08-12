@@ -63,7 +63,9 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn icon btn-sm btn-danger" type="submit" name="id"
-                                                    value="{{ $data->id }}"><i class="bi bi-trash"></i></button>
+                                                    value="{{ $data->id }}"
+                                                    onclick="return confirm('Apakah anda ingin menghapus data?')"><i
+                                                        class="bi bi-trash"></i></button>
                                             </form>
                                             <div class="modal fade text-left" id="{{ $data->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
@@ -71,7 +73,7 @@
                                                     role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title" id="myModalLabel33">Tambah Data</h4>
+                                                            <h4 class="modal-title" id="myModalLabel33">Edit Data</h4>
                                                             <button type="button" class="close" data-bs-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <i data-feather="x"></i>

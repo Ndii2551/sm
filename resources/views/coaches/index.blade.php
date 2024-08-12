@@ -72,7 +72,9 @@
                                                     @method('PUT')
                                                     <input type="hidden" name="status" value="2">
                                                     <button class="btn icon btn-sm btn-danger" type="submit" name="id"
-                                                        value="{{ $data->id }}"><i class="bi bi-x"></i></button>
+                                                        value="{{ $data->id }}"
+                                                        onclick="return confirm('Apakah anda ingin menonaktifkannya?')"><i
+                                                            class="bi bi-x"></i></button>
                                                 </form>
                                             @elseif ($data->status == 2)
                                                 <form class="d-inline" action="{{ url('coaches/status') }}" method="post">

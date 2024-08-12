@@ -118,7 +118,9 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn icon btn-sm btn-danger" type="submit" name="id"
-                                                        value="{{ $data->id }}"><i class="bi bi-x"></i>
+                                                        value="{{ $data->id }}"
+                                                        onclick="return confirm('Apakah anda ingin membatalkan pengajuan?')"><i
+                                                            class="bi bi-x"></i>
                                                     </button>
                                                 </form>
                                             </td>

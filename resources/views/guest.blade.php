@@ -170,8 +170,8 @@
                                         <input type="hidden" name="nama" value="{{ Auth::user()->name }}">
                                         <button type="submit" class="btn btn-primary me-1 mb-1" name="user_id"
                                             value="{{ Auth::user()->id }}">Simpan</button>
-                                        <button type="reset"
-                                            class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                        {{-- <button type="reset"
+                                            class="btn btn-light-secondary me-1 mb-1">Reset</button> --}}
                                     </div>
                                 </div>
                             </div>
@@ -362,8 +362,8 @@
                                             <input type="hidden" name="nama" value="{{ Auth::user()->name }}">
                                             <button type="submit" class="btn btn-primary me-1 mb-1" name="id"
                                                 value="{{ $data->id }}">Simpan</button>
-                                            <button type="reset"
-                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            {{-- <button type="reset"
+                                                class="btn btn-light-secondary me-1 mb-1">Reset</button> --}}
                                         </div>
                                     </div>
                                 </div>
