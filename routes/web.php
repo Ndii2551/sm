@@ -59,6 +59,7 @@ Route::middleware('auth', 'role:1')->group(function () {
     Route::group(['prefix' => 'athletes'], function () {
         Route::get('/', [AthletController::class, 'index'])->name('athletes');
         Route::put('/status', [AthletController::class, 'status'])->name('athletes.status');
+        Route::get('/stats', [AthletController::class, 'stats'])->name('athletes.stats');
     });
     Route::group(['prefix' => 'athletesunvalidate'], function () {
         Route::get('/', [AthletController::class, 'athletesunvalidate'])->name('athletesunvalidate');
@@ -97,6 +98,7 @@ Route::middleware('auth', 'role:2')->group(function () {
     Route::group(['prefix' => 'branchathletes'], function () {
         Route::get('/', [AthletController::class, 'index'])->name('branchathletes');
         Route::put('/status', [AthletController::class, 'status'])->name('branchathletes.status');
+        Route::get('/stats', [AthletController::class, 'statsB'])->name('branchathletes.stats');
     });
     Route::group(['prefix' => 'unvalidate'], function () {
         Route::get('/', [AthletController::class, 'unvalidate'])->name('unvalidate');

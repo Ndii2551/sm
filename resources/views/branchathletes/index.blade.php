@@ -2,6 +2,16 @@
 @section('page-css')
     <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
     <link rel="stylesheet" crossorigin href="./assets/compiled/css/table-datatable.css">
+    <script src="{{ url_plug() }}/assets/extensions/jquery/jquery.min.js"></script>
+    <style>
+        .stats-link {
+            color: #607080;
+        }
+
+        .stats-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 @endsection
 @section('content')
     <div id="main-content">
@@ -54,7 +64,17 @@
                                 @foreach ($athletes as $data)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td>{{ $data->nama }}</td>
+                                        <td>
+                                            <form class="d-none" id="{{ $data->id }}"
+                                                action="{{ route('branchathletes.stats') }}" method="get">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                                <input type="hidden" name="type" value="">
+                                                <button class="btn" type="submit">{{ $data->nama }}</button>
+                                            </form>
+                                            <a class="stats-link"
+                                                href="javascript:$('#{{ $data->id }}').submit();">{{ $data->nama }}</a>
+                                        </td>
                                         <td>{{ $data->tempat_lahir }},
                                             {{ \Carbon\Carbon::parse($data->tgl_lahir)->format('j F Y') }}
                                         </td>

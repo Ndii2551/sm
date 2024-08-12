@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Athlet;
 use App\Models\Branch;
 use App\Models\Coach;
+use App\Models\Score;
+use App\Models\TestType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -119,6 +121,34 @@ class AthletController extends Controller
         $datas = Athlet::all()->where('user_id', Auth::user()->id);
         $branches = Branch::all();
         return view('athletdata.index', compact('datas', 'branches'));
+    }
+    public function stats(Request $request)
+    {
+        $athlet = Athlet::where('id', $request->id)->first();
+        $types1 = TestType::all()->first();
+        $type = $request->input('type');
+        if ($type == '') {
+            $scores = Score::all()->where('nama', $types1->nama)->where('athlet_id', $athlet->id);
+        } else {
+            $scores = Score::all()->where('nama', $type)->where('athlet_id', $athlet->id);
+        }
+        $types = TestType::all();
+
+        return view('athletes.stats', compact('types', 'types1', 'scores', 'type', 'athlet'));
+    }
+    public function statsB(Request $request)
+    {
+        $athlet = Athlet::where('id', $request->id)->first();
+        $types1 = TestType::all()->first();
+        $type = $request->input('type');
+        if ($type == '') {
+            $scores = Score::all()->where('nama', $types1->nama)->where('athlet_id', $athlet->id);
+        } else {
+            $scores = Score::all()->where('nama', $type)->where('athlet_id', $athlet->id);
+        }
+        $types = TestType::all();
+
+        return view('branchathletes.stats', compact('types', 'types1', 'scores', 'type', 'athlet'));
     }
     public function store(Request $request)
     {
